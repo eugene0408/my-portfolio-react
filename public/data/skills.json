@@ -1,0 +1,5 @@
+{
+  "development": ["html", "css", "scss", "js", "react", "redux", "responsive"],
+  "tools": ["git", "github", "docker", "hosting"],
+  "graphic": ["figma", "photoshop", "inkscape"]
+}

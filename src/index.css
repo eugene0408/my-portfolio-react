@@ -1,0 +1,180 @@
+@font-face {
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.ttf") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Light.ttf") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CascadiaCoveWeb";
+  src: url("./assets/fonts/CascadiaCove.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CascadiaCove";
+  src: url("./assets/fonts/CascadiaCove.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --main-bg:#15141B; */
+/*linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
+linear-gradient(315deg, #2b4162 0%, #12100e 74%);   
+
+background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+
+background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
+
+
+
+ */
+
+:root {
+  --accent: #ffc831;
+  --main-bg: linear-gradient(147deg, #4d4855 0%, #000000 74%);
+  --menu-bg: linear-gradient(
+    109deg,
+    rgba(34, 36, 48, 1) 40%,
+    rgba(21, 20, 27, 0.8) 60%,
+    rgba(21, 20, 27, 1) 98%
+  );
+  --light-red: #fb627d;
+  --theme-accent: #ffc831;
+  --text-col: #fff;
+  --green: #27ae60;
+  --greensea: #16a085;
+  --carrot: #e67e22;
+  --orange: #f39c12;
+  --ava-bg: rgba(255, 255, 255, 0.15);
+  --loading-bg: rgba(0, 0, 0, 0.74);
+
+  --glassBg: rgba(255, 255, 255, 0.07);
+  --glassBorder: rgba(255, 255, 255, 0.02);
+
+  --skillLevelBg: #ffffff12;
+
+  --portfolio-shadow: 0 5px 10px 10px rgba(255, 255, 255, 0.02);
+
+  --main-font: "PoppinsWeb", "Poppins", sans-serif;
+  --bg-font: "CascadiaCoveWeb", "CascadiaCove", sans-serif;
+
+  --skill-animate-x: 150;
+}
+
+@media (max-width: 576px) {
+  body {
+    --skill-animate-x: 50;
+  }
+}
+
+[data-theme="light"] {
+  --main-bg: #fff;
+  --menu-bg: #d9d9d9;
+  --ava-bg: #d9d9d9;
+  --text-col: #000;
+  --theme-accent: #fb627d;
+  --portfolio-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.37);
+
+  --loading-bg: #fff;
+
+  --glassBg: rgba(0, 0, 0, 0.07);
+  --glassBorder: rgba(0, 0, 0, 0.02);
+
+  --skillLevelBg: #00000012;
+}
+
+body {
+  margin: 0;
+  font-family: var(--main-font);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  background: var(--main-bg);
+  overflow: hidden;
+}
+.App::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.stop-scroll {
+  overflow: hidden;
+}
