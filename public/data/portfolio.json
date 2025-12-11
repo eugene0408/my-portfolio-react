@@ -25,7 +25,7 @@
     "desktop": "images/portfolio/reduxShop.webp",
     "mobile": "images/portfolio/reduxShop-mobile.webp",
     "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
-    "tags": ["react", "redux"],
+    "tags": ["react", "redux", "i18next"],
     "website": "https://shop-react-redux-bice.vercel.app/",
     "repo": "https://github.com/eugene0408/shop-react-redux"
   },

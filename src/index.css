@@ -1,83 +1,83 @@
 @font-face {
-  font-family: 'PoppinsWeb';
-  src: url('./assets/fonts/Poppins-Regular.woff2') format('woff2');
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/fonts/Poppins-Regular.ttf') format('woff2');
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PoppinsWeb';
-  src: url('./assets/fonts/Poppins-Medium.woff2') format('woff2');
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/fonts/Poppins-Medium.ttf') format('woff2');
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.ttf") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PoppinsWeb';
-  src: url('./assets/fonts/Poppins-Bold.woff2') format('woff2');
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PoppinsWeb';
-  src: url('./assets/fonts/Poppins-ExtraBold.woff2') format('woff2');
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/fonts/Poppins-Bold.ttf') format('woff2');
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/fonts/Poppins-ExtraBold.ttf') format('woff2');
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PoppinsWeb';
-  src: url('./assets/fonts/Poppins-Light.woff2') format('woff2');
+  font-family: "PoppinsWeb";
+  src: url("./assets/fonts/Poppins-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/fonts/Poppins-Light.ttf') format('woff2');
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Light.ttf") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'CascadiaCoveWeb';
-  src: url('./assets/fonts/CascadiaCove.woff2') format('woff2');
+  font-family: "CascadiaCoveWeb";
+  src: url("./assets/fonts/CascadiaCove.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'CascadiaCove';
-  src: url('./assets/fonts/CascadiaCove.ttf') format('woff2');
+  font-family: "CascadiaCove";
+  src: url("./assets/fonts/CascadiaCove.ttf") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -95,30 +95,34 @@ background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
 
  */
 
-:root{
-  --accent:#FFC831;
+:root {
+  --accent: #ffc831;
   --main-bg: linear-gradient(147deg, #4d4855 0%, #000000 74%);
-  --menu-bg: linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
-  --light-red:#FB627D;
-  --theme-accent:#FFC831;
-  --text-col:#fff;
-  --green:#27AE60;
-  --greensea:#16A085;
-  --carrot:#E67E22;
-  --orange:#F39C12;
-  --ava-bg: rgba(255,255,255, .15);
-  --loading-bg: rgba(0,0,0, .74);
+  --menu-bg: linear-gradient(
+    109deg,
+    rgba(34, 36, 48, 1) 40%,
+    rgba(21, 20, 27, 0.8) 60%,
+    rgba(21, 20, 27, 1) 98%
+  );
+  --light-red: #fb627d;
+  --theme-accent: #ffc831;
+  --text-col: #fff;
+  --green: #27ae60;
+  --greensea: #16a085;
+  --carrot: #e67e22;
+  --orange: #f39c12;
+  --ava-bg: rgba(255, 255, 255, 0.15);
+  --loading-bg: rgba(0, 0, 0, 0.74);
 
+  --glassBg: rgba(255, 255, 255, 0.07);
+  --glassBorder: rgba(255, 255, 255, 0.02);
 
-  --glassBg:rgba( 255,255,255, 0.07);
-  --glassBorder:rgba( 255,255,255, 0.02);
-
-  --skillLevelBg:#ffffff12;
+  --skillLevelBg: #ffffff12;
 
   --portfolio-shadow: 0 5px 10px 10px rgba(255, 255, 255, 0.02);
 
-  --main-font: 'PoppinsWeb', 'Poppins', sans-serif;
-  --bg-font: 'CascadiaCoveWeb', 'CascadiaCove', sans-serif;
+  --main-font: "PoppinsWeb", "Poppins", sans-serif;
+  --bg-font: "CascadiaCoveWeb", "CascadiaCove", sans-serif;
 
   --skill-animate-x: 150;
 }
@@ -129,22 +133,20 @@ background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
   }
 }
 
-
-[data-theme='light']{
-  --main-bg:#fff;
-  --menu-bg:#D9D9D9;
-  --ava-bg: #D9D9D9;
-  --text-col:#000;
-  --theme-accent:#FB627D;
+[data-theme="light"] {
+  --main-bg: #fff;
+  --menu-bg: #d9d9d9;
+  --ava-bg: #d9d9d9;
+  --text-col: #000;
+  --theme-accent: #fb627d;
   --portfolio-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.37);
 
   --loading-bg: #fff;
 
-  --glassBg:rgba( 0,0,0, 0.07);
-  --glassBorder:rgba( 0,0,0, 0.02);
+  --glassBg: rgba(0, 0, 0, 0.07);
+  --glassBorder: rgba(0, 0, 0, 0.02);
 
-  --skillLevelBg:#00000012;
-
+  --skillLevelBg: #00000012;
 }
 
 body {
@@ -157,18 +159,18 @@ body {
   overflow-y: hidden;
 }
 body::-webkit-scrollbar {
-  display:none;
+  display: none;
 }
 
 a {
   text-decoration: none;
 }
 
-.App{
+.App {
   background: var(--main-bg);
   overflow: hidden;
 }
-.App::-webkit-scrollbar{
+.App::-webkit-scrollbar {
   display: none;
   width: 0;
 }

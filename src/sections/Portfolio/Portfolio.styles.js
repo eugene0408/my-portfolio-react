@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import { Container } from "../Pages.styles";
+
+export const PortfolioContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const PortfolioWrapper = styled.div`
   position: relative;
@@ -12,9 +19,6 @@ export const PortfolioWrapper = styled.div`
   }
   @media (max-width: 1600px) {
     width: 100%;
-  }
-  @media (max-width: 992px) {
-    width: 80%;
   }
   @media (max-width: 768px) {
     width: 90%;

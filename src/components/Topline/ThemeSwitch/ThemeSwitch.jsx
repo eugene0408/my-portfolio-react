@@ -1,78 +1,50 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { motion } from 'framer-motion'
+import { useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-import { ThemeContext } from '../../../App'
+import { ThemeContext } from "../../../App";
 
-import { ReactComponent as MoonIcon } from '../../../assets/icons/moon.svg'
-import { ReactComponent as SunIcon } from '../../../assets/icons/sun.svg'
+import MoonIcon from "../../../assets/icons/moon.svg?react";
+import SunIcon from "../../../assets/icons/sun.svg?react";
 
-import {
-    Container,
-    Wrapper,
-    Item,
-    ThemeIndicator
-} from './ThemeSwitch.styles'
+import { Wrapper, Item, ThemeIndicator } from "./ThemeSwitch.styles";
 
 export const ThemeSwitch = () => {
+  const { theme, changeTheme } = useContext(ThemeContext);
 
-    const {theme, changeTheme} = useContext(ThemeContext)
+  const switchHandler = () => {
+    changeTheme(theme === "dark" ? "light" : "dark");
+  };
 
-    const switchHandler = () => {
-        changeTheme(theme === 'dark' ? 'light' : 'dark')
-    }
+  const [indicatorPosition, setPosition] = useState(0);
 
-    const ThemeIcon = ({title}) => {
-        switch(title) {
-            case 'dark':
-                return(<MoonIcon/>)
-            case 'light':
-                return(<SunIcon/>)
-            default: 
-                return
-        }
-    }
+  const changePosition = () => {
+    setPosition(theme === "dark" ? 0 : 34);
+  };
 
-    const themeOptions = ['dark', 'light']
+  useEffect(() => {
+    setTimeout(() => changePosition(), 5);
+  }, [theme]);
 
-    const [indicatorPosition, 
-        setPosition] = useState(0)
+  return (
+    <Wrapper theme={theme} as={motion.div} onClick={() => switchHandler()}>
+      <ThemeIndicator
+        as={motion.div}
+        theme={theme}
+        animate={{
+          x: indicatorPosition,
+        }}
+        transition={{
+          duration: 0.05,
+          type: "spring",
+        }}
+      />
 
-    useEffect(()=> {
-        setPosition(theme === 'dark' ? 0 : 34)
-    }, [theme])
-
-    return (
-
-        <Wrapper
-            theme={theme}
-            as={motion.div}
-            onClick={() => switchHandler()}
-        >
-            <ThemeIndicator 
-                as={motion.div}
-                theme={theme}
-                animate={{
-                    x: indicatorPosition,
-                }}
-                transition={{
-                    duration: 0.05,
-                    type: "spring"
-                }}
-            />
-
-            {themeOptions.map((option, index)=> (
-                <Item
-                    key={option + index}
-                    value={option}
-                    theme={theme}
-                    as={motion.div}
-                >
-                    <ThemeIcon title={option}/>
-                </Item>
-            ))}
-
-
-        </Wrapper>
-
-    )
-}
+      <Item value="dark" theme={theme} as={motion.div}>
+        <MoonIcon title="dark" />
+      </Item>
+      <Item value="light" theme={theme} as={motion.div}>
+        <SunIcon title="light" />
+      </Item>
+    </Wrapper>
+  );
+};

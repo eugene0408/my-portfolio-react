@@ -1,5 +1,4 @@
-import React, { useState, useEffect, forwardRef } from "react";
-import { Container, Row } from "react-grid-system";
+import { useState, useEffect, forwardRef } from "react";
 
 import {
   PortfolioCategorySelect,
@@ -7,12 +6,13 @@ import {
   PortfolioPagination,
 } from "../../components";
 
-import { PageWrapper, PageHeader, ContentWrapper } from "../Pages.styles";
+import { PageWrapper, PageHeader } from "../Pages.styles";
 
-import { PortfolioWrapper } from "./Portfolio.styles";
+import { PortfolioContainer, PortfolioWrapper } from "./Portfolio.styles";
+import { AnimatePresence } from "framer-motion";
 
 export const Portfolio = forwardRef(
-  ({ hovered, setHovered, scrollToSection, portfolioData }, ref) => {
+  ({ setHovered, scrollToSection, currentSection, portfolioData }, ref) => {
     // Categories for filter
     const categoriesList = ["react", "js"];
     // Current category
@@ -69,17 +69,22 @@ export const Portfolio = forwardRef(
       (_, i) => i + 1
     );
 
-    // Start from last page if scrolled back
-    const startFromLastScreen = () => {
-      if (categoryScrolledBack) {
-        setCurPortfolioPage(totalScreens.length);
-        setCategoryScrolledBack(false);
-      }
-    };
+    useEffect(() => {
+      // Reset page and category
+      setPortfolioCategory(categoriesList[0]);
+      setCurPortfolioPage(1);
+    }, [currentSection]);
 
     useEffect(() => {
-      startFromLastScreen();
-    }, [portfolioCategory]);
+      // Start from last page if scrolled back
+      const lastPage = totalScreens.length;
+      if (categoryScrolledBack) {
+        setTimeout(() => {
+          setCurPortfolioPage(lastPage);
+          setCategoryScrolledBack(false);
+        }, 10);
+      }
+    }, [categoryScrolledBack]);
 
     const onHoverHandler = () => {
       setHovered(true);
@@ -93,7 +98,8 @@ export const Portfolio = forwardRef(
       try {
         document.createEvent("TouchEvent");
         return true;
-      } catch (error) {
+        // eslint-disable-next-line no-unused-vars
+      } catch (e) {
         return false;
       }
     };
@@ -120,14 +126,14 @@ export const Portfolio = forwardRef(
       setTimeout(() => {
         setPortfolioCategory(categoriesList[curCategoryIndex + 1]);
         setCurPortfolioPage(1); //start from first page
-      }, 100);
+      }, 10);
     };
 
     const switchToPrevCategory = () => {
       setTimeout(() => {
         setPortfolioCategory(categoriesList[curCategoryIndex - 1]);
         setCategoryScrolledBack(true);
-      }, 100);
+      }, 10);
     };
 
     // Switch pages handler
@@ -167,7 +173,7 @@ export const Portfolio = forwardRef(
         if (isScrollingUp && !isTouchDevice()) prevPage();
       };
 
-      setTimeout(scrollPages(), 300);
+      setTimeout(scrollPages(), 10);
     };
 
     // Switch pages on touchscreen
@@ -198,23 +204,24 @@ export const Portfolio = forwardRef(
         {/* <ImagePreloader imageUrls={imageUrls()}/> */}
         <PageHeader> My works </PageHeader>
 
-        <Container>
-          <Row justify="center" align="center" direction="column">
-            <PortfolioCategorySelect
-              curCategory={portfolioCategory}
-              setCategory={setPortfolioCategory}
-              categoriesList={categoriesList}
-            />
-            <PortfolioWrapper
-              onMouseEnter={() => onHoverHandler()}
-              onMouseLeave={() => onLeaveHandler()}
-              onWheel={(e) => {
-                onWheelHandler(e);
-              }}
-              onTouchStart={(e) => onTouchStartHandler(e)}
-              onTouchMove={(e) => onTouchMoveHandler(e)}
-              onTouchEnd={(e) => onTouchEndHandler(e)}
-            >
+        <PortfolioContainer>
+          <PortfolioCategorySelect
+            curCategory={portfolioCategory}
+            setCategory={setPortfolioCategory}
+            categoriesList={categoriesList}
+            setPage={setCurPortfolioPage}
+          />
+          <PortfolioWrapper
+            onMouseEnter={() => onHoverHandler()}
+            onMouseLeave={() => onLeaveHandler()}
+            onWheel={(e) => {
+              onWheelHandler(e);
+            }}
+            onTouchStart={(e) => onTouchStartHandler(e)}
+            onTouchMove={(e) => onTouchMoveHandler(e)}
+            onTouchEnd={(e) => onTouchEndHandler(e)}
+          >
+            <AnimatePresence>
               {/* Portfolio items  */}
               {itemsToDisplay.map((item) => (
                 <PortfolioItem
@@ -228,16 +235,16 @@ export const Portfolio = forwardRef(
                   repo={item.repo}
                 />
               ))}
+            </AnimatePresence>
 
-              {/* Pagination */}
-              <PortfolioPagination
-                curScreen={curPortfolioPage}
-                setCurScreen={setCurPortfolioPage}
-                totalScreens={totalScreens}
-              />
-            </PortfolioWrapper>
-          </Row>
-        </Container>
+            {/* Pagination */}
+            <PortfolioPagination
+              curScreen={curPortfolioPage}
+              setCurScreen={setCurPortfolioPage}
+              totalScreens={totalScreens}
+            />
+          </PortfolioWrapper>
+        </PortfolioContainer>
       </PageWrapper>
     );
   }
