@@ -15,18 +15,6 @@ export const ThemeContext = React.createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const SectionContext = React.createContext();
 
-// Grid congig
-// setConfiguration({
-//   containerWidths: [
-//     440, // sm
-//     640, // md
-//     860, // lg
-//     1040, // xl
-//     1340, // xxl
-//     1710, //xxxl
-//   ],
-// });
-
 function App() {
   // Theme change
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

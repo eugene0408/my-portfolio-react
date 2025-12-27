@@ -9,10 +9,11 @@ export const PortfolioContainer = styled(Container)`
 
 export const PortfolioWrapper = styled.div`
   position: relative;
-  height: 80vh;
-  width: 80%;
+  width: 100%;
+  height: 550px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 5rem;
   @media (min-width: 2000px) {
     justify-content: center;

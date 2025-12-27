@@ -4,7 +4,7 @@ import { MSkillsItem } from "../../components";
 
 import { PageWrapper, PageHeader, Container } from "../Pages.styles";
 import { RowHeader, CardsGrid, SkillsContainer } from "./Skills.styles";
-import { skillCardsAnimation } from "./SkillsAnimations";
+import { skillCardsAnimation } from "./Skills.animations";
 
 export const Skills = forwardRef(({ skillsData }, ref) => {
   return (

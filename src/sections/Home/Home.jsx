@@ -30,7 +30,7 @@ import {
   imageAnimation,
   imageBgAnimation,
   textAnimation,
-} from "./HomeAnimations";
+} from "./Home.animations";
 
 export const Home = forwardRef(({ scrollToSection }, ref) => {
   const { theme, changeTheme } = useContext(ThemeContext);
@@ -136,7 +136,7 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
               <AvatarBg />
             </AvatarBgWrapper>
             <motion.img
-              src={"./images/homepage/morda.webp"}
+              src={"./images/homepage/main.png"}
               alt="avatar"
               variants={imageAnimation}
               custom={1}

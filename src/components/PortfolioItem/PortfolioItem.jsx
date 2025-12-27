@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import InternetIcon from "../../assets/icons/internet.svg?react";
 import GitHubIcon from "../../assets/icons/skills/github.svg?react";
+import LeftArrowIcon from "../../assets/icons/up-left-arrow.svg?react";
+import RightArrowIcon from "../../assets/icons/up-right-arrow.svg?react";
 
 import {
   Wrapper,
@@ -15,126 +17,21 @@ import {
   MobileScreen,
   Tags,
   LinksWrapper,
+  LinkArrowWrapper,
   LinkItem,
 } from "./PortfolioItem.styles";
 
-const bigScreenAnimation = {
-  hidden: {
-    opacity: 0,
-    x: -150,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    z: 1,
-    transition: {
-      type: "spring",
-    },
-  },
-  hover: {
-    z: 5,
-    rotateY: -10,
-    transition: {
-      rotateY: { duration: 0.4, type: "ease-in-out" },
-      z: { type: "ease-in-out" },
-    },
-  },
-};
-
-const smallScreenAnimation = {
-  hidden: {
-    opacity: 0,
-    x: 50,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    z: 20,
-    transition: {
-      delay: 0.1,
-      type: "spring",
-      opacity: { duration: 0.1 },
-      x: { duration: 0.3 },
-    },
-  },
-  hover: {
-    z: 100,
-    rotateY: -10,
-    transition: {
-      rotateY: { duration: 0.4, type: "ease-in-out" },
-      z: { duration: 0.3, type: "ease-in-out" },
-    },
-  },
-};
-
-const tagsWrapperAnimation = {
-  hover: {
-    z: 45,
-    rotateY: -10,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
-
-const tagAnimation = {
-  hidden: {
-    opacity: 0,
-    y: 25,
-  },
-  visible: (custom) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: custom * 0.1,
-      duration: 0.1,
-    },
-  }),
-  hover: {
-    color: "var(--theme-accent)",
-  },
-};
-
-const titleAnimation = {
-  hidden: {
-    opacity: 0,
-    y: -50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-    },
-  },
-};
-
-const textAnimation = {
-  hidden: {
-    opacity: 0,
-    scale: 0.5,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
-const linksAnimation = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: (custom) => ({
-    opacity: 1,
-    transition: {
-      duration: custom * 0.8,
-      type: "spring",
-    },
-  }),
-};
+import {
+  wrapperAnimation,
+  bigScreenAnimation,
+  smallScreenAnimation,
+  titleAnimation,
+  tagAnimation,
+  textAnimation,
+  linksAnimation,
+  linkArrowAnimation,
+  staggerItemsAnimation,
+} from "./PortfolioItem.animations";
 
 export const PortfolioItem = ({
   desktop,
@@ -144,95 +41,111 @@ export const PortfolioItem = ({
   tags,
   website,
   repo,
+  index,
 }) => {
   return (
-    <Wrapper as={motion.div}>
-      <ScreensWrapper
+    <AnimatePresence>
+      <Wrapper
         as={motion.div}
-        whileHover="hover"
+        variants={wrapperAnimation}
         initial="hidden"
         whileInView="visible"
+        custom={index}
       >
-        <ScreensContainer
+        <ScreensWrapper
           as={motion.div}
-          style={{
-            perspective: "2000px",
-            transformStyle: "preserve-3d",
-          }}
+          whileHover="hover"
+          initial="hidden"
+          whileInView="visible"
         >
-          <DesctopScreen as={motion.div} variants={bigScreenAnimation}>
-            <img src={desktop} alt={`${title}`} />
-          </DesctopScreen>
+          <ScreensContainer as={motion.div}>
+            <DesctopScreen as={motion.div} variants={bigScreenAnimation}>
+              <img src={desktop} alt={`${title}`} />
+            </DesctopScreen>
 
-          <Tags as={motion.div} variants={tagsWrapperAnimation}>
+            <MobileScreen as={motion.div} variants={smallScreenAnimation}>
+              <img src={mobile} alt={`${title}-mobile`} />
+            </MobileScreen>
+          </ScreensContainer>
+        </ScreensWrapper>
+        <DescrWrapper>
+          <Title
+            as={motion.h3}
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+          >
+            {title}
+          </Title>
+
+          <Tags
+            as={motion.div}
+            variants={staggerItemsAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {tags.map((tag, index) => (
               <motion.div
                 key={`${index}-${title}-${tag}`}
                 variants={tagAnimation}
-                whileHover="hover"
-                custom={index}
               >
                 {tag}
               </motion.div>
             ))}
           </Tags>
 
-          <MobileScreen as={motion.div} variants={smallScreenAnimation}>
-            <img src={mobile} alt={`${title}-mobile`} />
-          </MobileScreen>
-        </ScreensContainer>
-      </ScreensWrapper>
-      <DescrWrapper>
-        <Title
-          as={motion.h3}
-          variants={titleAnimation}
-          initial="hidden"
-          whileInView="visible"
-        >
-          {title}
-        </Title>
-
-        <Description
-          as={motion.p}
-          variants={textAnimation}
-          initial="hidden"
-          whileInView="visible"
-        >
-          {descr}
-        </Description>
-
-        <LinksWrapper as={motion.div}>
-          <LinkItem
-            href={website}
-            as={motion.a}
-            variants={linksAnimation}
-            custom={2}
+          <Description
+            as={motion.p}
+            variants={textAnimation}
             initial="hidden"
             whileInView="visible"
           >
-            website <InternetIcon />
-          </LinkItem>
+            {descr}
+          </Description>
 
-          <motion.span
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            ||
-          </motion.span>
+          <LinksWrapper as={motion.div}>
+            <LinkItem
+              href={website}
+              as={motion.a}
+              variants={linksAnimation}
+              custom={1}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              viewport={{ once: true }}
+            >
+              live <InternetIcon />
+              <LinkArrowWrapper as={motion.div} variants={linkArrowAnimation}>
+                <LeftArrowIcon />
+              </LinkArrowWrapper>
+            </LinkItem>
 
-          <LinkItem
-            href={repo}
-            as={motion.a}
-            variants={linksAnimation}
-            custom={3}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <GitHubIcon /> repository
-          </LinkItem>
-        </LinksWrapper>
-      </DescrWrapper>
-    </Wrapper>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              ||
+            </motion.span>
+
+            <LinkItem
+              href={repo}
+              as={motion.a}
+              variants={linksAnimation}
+              custom={2}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+            >
+              <GitHubIcon /> repo
+              <LinkArrowWrapper as={motion.div} variants={linkArrowAnimation}>
+                <RightArrowIcon />
+              </LinkArrowWrapper>
+            </LinkItem>
+          </LinksWrapper>
+        </DescrWrapper>
+      </Wrapper>
+    </AnimatePresence>
   );
 };

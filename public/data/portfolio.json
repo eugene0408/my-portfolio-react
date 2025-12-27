@@ -1,19 +1,29 @@
 [
   {
+    "title": "Catweather",
+    "category": "react",
+    "desktop": "images/portfolio/cat-weather.webp",
+    "mobile": "images/portfolio/cat-weather_m.webp",
+    "descr": "A weather application that displays funny cats dressed according to current weather conditions, featuring worldwide location search, light and dark themes, responsive design, and real-time weather data powered by the OpenWeather API.",
+    "tags": ["react", "styled-components", "openweather-API", "nano-banana"],
+    "website": "https://catweather.netlify.app",
+    "repo": "https://github.com/eugene0408/weather-cat-app"
+  },
+  {
     "title": "Headless Wordpress Shop",
     "category": "react",
-    "desktop": "images/portfolio/headlessShop.webp",
-    "mobile": "images/portfolio/headlessShop-mobile.webp",
+    "desktop": "images/portfolio/headless-shop.webp",
+    "mobile": "images/portfolio/headless-shop_m.webp",
     "descr": "A compact e-commerce website built with Headless WordPress/WooCommerce as a backend. The project features a modern MUI design, efficient product search, dark & light theme, optimized for both desktop and mobile devices",
-    "tags": ["react", "redux", "MUI"],
+    "tags": ["react", "redux-toolkit", "router-dom", "MUI", "woocommerce-API"],
     "website": "https://headless-wp-shop.netlify.app/",
     "repo": "https://github.com/eugene0408/woommerce-headless-wordpress"
   },
   {
     "title": "Age Counter",
     "category": "react",
-    "desktop": "images/portfolio/ageCounterReact.webp",
-    "mobile": "images/portfolio/ageCounterReact-mobile.webp",
+    "desktop": "images/portfolio/age-counter.webp",
+    "mobile": "images/portfolio/age-counter_m.webp",
     "descr": " Web application that accurately calculates a user's age based on their birthdate. It displays the exact time elapsed since birth (years, months, days, hours, minutes). Supports multiple languages, light & dark themes and a fully responsive design.",
     "tags": ["react", "css", "i18next"],
     "website": "https://age-counter.netlify.app",
@@ -22,48 +32,44 @@
   {
     "title": "Carpathian Herbs Shop",
     "category": "react",
-    "desktop": "images/portfolio/reduxShop.webp",
-    "mobile": "images/portfolio/reduxShop-mobile.webp",
+    "desktop": "images/portfolio/redux-shop.webp",
+    "mobile": "images/portfolio/redux-shop_m.webp",
     "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
-    "tags": ["react", "redux", "i18next"],
+    "tags": [
+      "react",
+      "redux-toolkit",
+      "router-dom",
+      "i18next",
+      "styled-components"
+    ],
     "website": "https://shop-react-redux-bice.vercel.app/",
     "repo": "https://github.com/eugene0408/shop-react-redux"
   },
   {
-    "title": "Todo List",
-    "category": "react",
-    "desktop": "images/portfolio/todoRedux.webp",
-    "mobile": "images/portfolio/todoRedux-mobile.webp",
-    "descr": "A minimalist To-Do List app with smooth animations, task completion tracking, sorting options for completed and pending items",
-    "tags": ["react", "redux"],
-    "website": "https://eugene0408.github.io/Todo-ReactRedux/",
-    "repo": "https://github.com/eugene0408/Todo-ReactRedux"
-  },
-  {
     "title": "Honey Shop",
     "category": "js",
-    "desktop": "images/portfolio/honeyShop.webp",
-    "mobile": "images/portfolio/honeyShop-mobile.webp",
+    "desktop": "images/portfolio/honey-shop.webp",
+    "mobile": "images/portfolio/honey-shop_m.webp",
     "descr": "Small e-commerce web application with smooth animations. It demonstrates essential features commonly found in online stores. ",
-    "tags": ["html", "sass", "jQuery"],
-    "website": "https://eugene0408.github.io/honey_shop/",
-    "repo": "https://github.com/eugene0408/honey_shop"
+    "tags": ["html", "sass", "js", "jQuery"],
+    "website": "https://eugene0408.github.io/honey-shop/",
+    "repo": "https://github.com/eugene0408/honey-shop"
   },
   {
     "title": "Compremont",
     "category": "js",
-    "desktop": "images/portfolio/kompremont.webp",
-    "mobile": "images/portfolio/kompremont-mobile.webp",
+    "desktop": "images/portfolio/compremont.webp",
+    "mobile": "images/portfolio/compremont_m.webp",
     "descr": "Computer and smartphone repair workshop website with carousel slider that showcases key offerings, and subtle element animations.",
-    "tags": ["html", "sass", "jQuery"],
+    "tags": ["html", "sass", "js", "jQuery"],
     "website": "https://compremont.netlify.app/",
     "repo": "https://github.com/eugene0408/Compremont"
   },
   {
     "title": "Food spin",
     "category": "js",
-    "desktop": "images/portfolio/foodSpin.webp",
-    "mobile": "images/portfolio/foodSpin-mobile.webp",
+    "desktop": "images/portfolio/food-spin.webp",
+    "mobile": "images/portfolio/food-spin_m.webp",
     "descr": "Website layout design based on a free template. Spinner carousel, dynamic animations, responsive design",
     "tags": ["html", "sass", "js"],
     "website": "https://eugene0408.github.io/food-spin/",

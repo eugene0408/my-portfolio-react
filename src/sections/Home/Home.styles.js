@@ -95,7 +95,7 @@ export const AvatarWrapper = styled.div`
   align-items: center;
   height: 100%;
   & img {
-    height: 450px;
+    height: 500px;
     z-index: 2;
   }
   @media (max-width: 1200px) {
@@ -122,7 +122,7 @@ export const AvatarBgWrapper = styled.div`
   justify-content: center;
   align-items: center;
   & svg {
-    height: 420px;
+    height: 0;
   }
   & svg path {
     fill: var(--ava-bg);
@@ -140,7 +140,7 @@ export const AvatarBgWrapper = styled.div`
 `;
 
 export const ThemeImageWrapper = styled.div`
-  --size: 150px;
+  --size: 120px;
   display: flex;
   justify-content: center;
   align-items: center;

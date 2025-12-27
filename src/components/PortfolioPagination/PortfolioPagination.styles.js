@@ -4,20 +4,13 @@ const size = 10;
 
 export const Wrapper = styled.div`
   position: absolute;
-  top: 0;
-  right: -50px;
-  height: 100%;
+  bottom: -50px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  @media (max-width: 768px) {
-    right: -80px;
-  }
-  @media (max-width: 576px) {
-    right: -50px;
-  }
 `;
 
 export const Item = styled.div`
@@ -25,7 +18,7 @@ export const Item = styled.div`
   width: ${size}px;
   border-radius: 50%;
   cursor: pointer;
-  margin: 0.5em 0;
+  margin: 0 0.3em;
   transition: 0.3s ease;
   background: ${(props) =>
     props.$isActive ? "var(--accent)" : "var(--text-col)"};

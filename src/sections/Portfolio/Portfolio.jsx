@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef, useRef } from "react";
 
 import {
   PortfolioCategorySelect,
@@ -9,7 +9,6 @@ import {
 import { PageWrapper, PageHeader } from "../Pages.styles";
 
 import { PortfolioContainer, PortfolioWrapper } from "./Portfolio.styles";
-import { AnimatePresence } from "framer-motion";
 
 export const Portfolio = forwardRef(
   ({ setHovered, scrollToSection, currentSection, portfolioData }, ref) => {
@@ -28,6 +27,8 @@ export const Portfolio = forwardRef(
     const [touchEnd, setTouchEnd] = useState(null);
     // Preloaded slides
     const [loadedSlides, setLoadedSlides] = useState([]);
+
+    const isScrollingRef = useRef(false);
 
     useEffect(() => {
       // Get data array and return it with loaded images
@@ -51,9 +52,9 @@ export const Portfolio = forwardRef(
       return filtered;
     };
 
-    /**  Pagination
+    /** ---------- Pagination
    ----------------------------------------------*/
-    const screenIsSmall = window.matchMedia("(max-width: 1200px)").matches;
+    const screenIsSmall = window.matchMedia("(max-width: 992px)").matches;
     const itemsPerScreen = () => (screenIsSmall ? 1 : 2);
     const indexOfLastItem = curPortfolioPage * itemsPerScreen();
     const indexOfFirstItem = indexOfLastItem - itemsPerScreen();
@@ -104,7 +105,7 @@ export const Portfolio = forwardRef(
       }
     };
 
-    //** ------       Portfolio Navigation          ----------------------*/
+    //** ------  Portfolio Navigation  --------------*/
 
     const numberOfScreens = totalScreens.length;
     const curCategoryIndex = categoriesList.findIndex(
@@ -165,15 +166,20 @@ export const Portfolio = forwardRef(
 
     // Switch pages by mouse wheel
     const onWheelHandler = (e) => {
+      if (isTouchDevice()) return;
+      if (isScrollingRef.current) return;
+
       const isScrollingUp = e.deltaY < 0;
       const isScrollingDown = e.deltaY > 0;
 
-      const scrollPages = () => {
-        if (isScrollingDown && !isTouchDevice()) nextPage();
-        if (isScrollingUp && !isTouchDevice()) prevPage();
-      };
+      isScrollingRef.current = true;
 
-      setTimeout(scrollPages(), 10);
+      if (isScrollingDown) nextPage();
+      if (isScrollingUp) prevPage();
+
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 500);
     };
 
     // Switch pages on touchscreen
@@ -221,21 +227,20 @@ export const Portfolio = forwardRef(
             onTouchMove={(e) => onTouchMoveHandler(e)}
             onTouchEnd={(e) => onTouchEndHandler(e)}
           >
-            <AnimatePresence>
-              {/* Portfolio items  */}
-              {itemsToDisplay.map((item) => (
-                <PortfolioItem
-                  key={item.title}
-                  title={item.title}
-                  desktop={item.desktop.src}
-                  mobile={item.mobile.src}
-                  descr={item.descr}
-                  tags={item.tags}
-                  website={item.website}
-                  repo={item.repo}
-                />
-              ))}
-            </AnimatePresence>
+            {/* Portfolio items  */}
+            {itemsToDisplay.map((item, index) => (
+              <PortfolioItem
+                key={item.title}
+                title={item.title}
+                desktop={item.desktop.src}
+                mobile={item.mobile.src}
+                descr={item.descr}
+                tags={item.tags}
+                website={item.website}
+                repo={item.repo}
+                index={index}
+              />
+            ))}
 
             {/* Pagination */}
             <PortfolioPagination
