@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-import { AnimatePresence } from "framer-motion";
-
 // Components
 import { Home, Skills, Portfolio, Contacts } from "./sections";
 import { SideMenu, Topline } from "./components";

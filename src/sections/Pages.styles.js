@@ -62,10 +62,9 @@ export const Container = styled.div`
   position: relative;
 
   @media (min-width: 320px) and (max-width: 479px) {
-    max-width: 280px;
+    max-width: 260px;
     padding-inline: 0;
-    margin-inline-start: auto;
-    margin-inline-end: 2em;
+    margin-inline: auto;
   }
 
   @media (min-width: 480px) {
@@ -73,11 +72,11 @@ export const Container = styled.div`
   }
 
   @media (min-width: 576px) {
-    max-width: 400px;
+    max-width: 420px;
   }
 
   @media (min-width: 768px) {
-    max-width: 580px;
+    max-width: 620px;
   }
 
   @media (min-width: 992px) {

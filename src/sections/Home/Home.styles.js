@@ -23,6 +23,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const HeaderTitle = styled.div`
+  margin-bottom: 0.5em;
   & h2 {
     position: relative;
     width: fit-content;
@@ -71,20 +72,6 @@ export const HeaderTitle = styled.div`
       padding: 0 5px 0 0;
       z-index: -1;
     }
-  }
-`;
-
-export const HeaderSkills = styled.p`
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--text-col);
-  @media (max-width: 1200px) {
-    font-size: 14px;
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
-    margin: 0.6em 0;
   }
 `;
 

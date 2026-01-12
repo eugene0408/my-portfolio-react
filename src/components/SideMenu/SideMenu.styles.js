@@ -13,7 +13,7 @@ export const MenuWrapper = styled.div`
   @media (max-width: 1200px) {
     left: 10px;
   }
-  @media (max-width: 576px) {
+  @media (max-width: 992px) {
     left: 0;
   }
 `;
@@ -28,7 +28,7 @@ export const Menu = styled.nav`
   backdrop-filter: blur(4px);
   border-radius: 10px;
   padding: 1em;
-  @media (max-width: 576px) {
+  @media (max-width: 992px) {
     border-radius: 0 10px 10px 0;
     padding: 1.5em 0.6em;
   }

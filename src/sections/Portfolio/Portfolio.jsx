@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef, useRef } from "react";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
 import {
   PortfolioCategorySelect,
@@ -16,7 +17,7 @@ export const Portfolio = forwardRef(
     const categoriesList = ["react", "js"];
     // Current category
     const [portfolioCategory, setPortfolioCategory] = useState(
-      categoriesList[0]
+      categoriesList[0],
     );
     // Current page
     const [curPortfolioPage, setCurPortfolioPage] = useState(1);
@@ -47,27 +48,30 @@ export const Portfolio = forwardRef(
 
     const filterByCategory = () => {
       const filtered = loadedSlides.filter(
-        (item) => item.category === portfolioCategory
+        (item) => item.category === portfolioCategory,
       );
       return filtered;
     };
 
+    const filteredItems = filterByCategory();
+
     /** ---------- Pagination
    ----------------------------------------------*/
-    const screenIsSmall = window.matchMedia("(max-width: 992px)").matches;
-    const itemsPerScreen = () => (screenIsSmall ? 1 : 2);
+    const isDesktop = useScreenSize() === "desktop";
+    const isTablet = useScreenSize() === "tablet";
+    const itemsPerScreen = () => (!isDesktop && !isTablet ? 1 : 2);
     const indexOfLastItem = curPortfolioPage * itemsPerScreen();
     const indexOfFirstItem = indexOfLastItem - itemsPerScreen();
 
-    const itemsToDisplay = filterByCategory().slice(
+    const itemsToDisplay = filteredItems.slice(
       indexOfFirstItem,
-      indexOfLastItem
+      indexOfLastItem,
     );
-    const totalItems = filterByCategory().length;
+    const totalItems = filteredItems.length;
     // Array of numbers from 1 to screens amount
     const totalScreens = Array.from(
       { length: Math.ceil(totalItems / itemsPerScreen()) },
-      (_, i) => i + 1
+      (_, i) => i + 1,
     );
 
     useEffect(() => {
@@ -95,21 +99,21 @@ export const Portfolio = forwardRef(
     };
 
     // Detect touch device
-    const isTouchDevice = () => {
-      try {
-        document.createEvent("TouchEvent");
-        return true;
-        // eslint-disable-next-line no-unused-vars
-      } catch (e) {
-        return false;
-      }
-    };
+    // const isTouchDevice = () => {
+    //   try {
+    //     document.createEvent("TouchEvent");
+    //     return true;
+    //     // eslint-disable-next-line no-unused-vars
+    //   } catch (e) {
+    //     return false;
+    //   }
+    // };
 
     //** ------  Portfolio Navigation  --------------*/
 
     const numberOfScreens = totalScreens.length;
     const curCategoryIndex = categoriesList.findIndex(
-      (category) => category === portfolioCategory
+      (category) => category === portfolioCategory,
     );
     const isLastCategory =
       portfolioCategory === categoriesList[categoriesList.length - 1];
@@ -166,7 +170,6 @@ export const Portfolio = forwardRef(
 
     // Switch pages by mouse wheel
     const onWheelHandler = (e) => {
-      if (isTouchDevice()) return;
       if (isScrollingRef.current) return;
 
       const isScrollingUp = e.deltaY < 0;
@@ -228,19 +231,25 @@ export const Portfolio = forwardRef(
             onTouchEnd={(e) => onTouchEndHandler(e)}
           >
             {/* Portfolio items  */}
-            {itemsToDisplay.map((item, index) => (
-              <PortfolioItem
-                key={item.title}
-                title={item.title}
-                desktop={item.desktop.src}
-                mobile={item.mobile.src}
-                descr={item.descr}
-                tags={item.tags}
-                website={item.website}
-                repo={item.repo}
-                index={index}
-              />
-            ))}
+            {itemsToDisplay.map((item, localIndex) => {
+              const globalIndex = localIndex + indexOfFirstItem;
+              return (
+                <PortfolioItem
+                  key={item.title}
+                  title={item.title}
+                  desktop={item.desktop.src}
+                  mobile={item.mobile.src}
+                  descr={item.descr}
+                  tags={item.tags}
+                  website={item.website}
+                  repo={item.repo}
+                  index={globalIndex}
+                  curPage={curPortfolioPage}
+                  itemsPerScreen={itemsPerScreen}
+                  curSection={currentSection}
+                />
+              );
+            })}
 
             {/* Pagination */}
             <PortfolioPagination
@@ -252,5 +261,5 @@ export const Portfolio = forwardRef(
         </PortfolioContainer>
       </PageWrapper>
     );
-  }
+  },
 );

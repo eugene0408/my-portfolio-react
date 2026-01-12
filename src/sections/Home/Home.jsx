@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Images
 import DownloadIcon from "../../assets/icons/document.svg?react";
-import AvatarBg from "../../assets/images/morda-bg.svg?react";
 
 // Components
 import { AccentButton, CVButton, CVIcon } from "../../components";
@@ -15,20 +14,19 @@ import {
   HomeGrid,
   HeaderWrapper,
   HeaderTitle,
-  HeaderSkills,
   AvatarWrapper,
   ThemeImageWrapper,
   ScrollDownWrapper,
   ScrollLink,
   DownArrow,
-  AvatarBgWrapper,
+  // AvatarBgWrapper,
 } from "./Home.styles";
 
 // Animations
 import {
   sunMoonAnimation,
   imageAnimation,
-  imageBgAnimation,
+  // imageBgAnimation,
   textAnimation,
 } from "./Home.animations";
 
@@ -51,9 +49,6 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
                 Web developer
               </motion.h2>
             </HeaderTitle>
-            <HeaderSkills as={motion.p} variants={textAnimation} custom={4}>
-              HTML | CSS | JS | REACT
-            </HeaderSkills>
 
             <AccentButton
               onClick={() => scrollToSection("s-contacts")}
@@ -127,14 +122,14 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
             whileInView="visible"
             whileHover="hover"
           >
-            <AvatarBgWrapper
+            {/* <AvatarBgWrapper
               as={motion.div}
               variants={imageBgAnimation}
               initial="hidden"
               whileInView="visible"
             >
-              <AvatarBg />
-            </AvatarBgWrapper>
+
+            </AvatarBgWrapper>*/}
             <motion.img
               src={"./images/homepage/main.png"}
               alt="avatar"

@@ -5,6 +5,10 @@ export const PortfolioContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 998px) {
+    justify-content: center;
+    flex-grow: 1;
+  }
 `;
 
 export const PortfolioWrapper = styled.div`
@@ -21,11 +25,13 @@ export const PortfolioWrapper = styled.div`
   @media (max-width: 1600px) {
     width: 100%;
   }
-  @media (max-width: 768px) {
-    width: 90%;
+  @media (max-width: 998px) {
+    height: 280px;
+  }
+  @media (max-width: 998px) and (min-height: 800px) {
+    height: 480px;
   }
   @media (max-width: 576px) {
-    width: 70%;
-    height: 500px;
+    height: 480px;
   }
 `;
