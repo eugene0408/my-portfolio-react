@@ -3,7 +3,7 @@ import { Container } from "../Pages.styles";
 
 export const SectionContainer = styled(Container)`
   display: flex;
-  height: 70%;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@ export const SectionContainer = styled(Container)`
 
 export const ContactContainer = styled.div`
   flex-grow: 1;
-  height: 100%;
+  /*height: 100%;*/
   display: flex;
   flex-direction: column;
   align-items: center;

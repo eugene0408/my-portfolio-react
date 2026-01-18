@@ -9,8 +9,8 @@ import { skillCardsAnimation } from "./Skills.animations";
 export const Skills = forwardRef(({ skillsData }, ref) => {
   return (
     <PageWrapper id="s-skills" ref={ref}>
-      <PageHeader> My skills </PageHeader>
       <SkillsContainer>
+        <PageHeader> My skills </PageHeader>
         <CardsGrid>
           <RowHeader>Development</RowHeader>
           {skillsData.development.map((item, index) => (

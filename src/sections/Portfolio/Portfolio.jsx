@@ -211,9 +211,9 @@ export const Portfolio = forwardRef(
     return (
       <PageWrapper id="s-portfolio" ref={ref}>
         {/* <ImagePreloader imageUrls={imageUrls()}/> */}
-        <PageHeader> My works </PageHeader>
 
         <PortfolioContainer>
+          <PageHeader> My projects </PageHeader>
           <PortfolioCategorySelect
             curCategory={portfolioCategory}
             setCategory={setPortfolioCategory}

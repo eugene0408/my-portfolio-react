@@ -17,7 +17,7 @@ export const Item = styled.button`
   font-size: 16px;
   color: ${(props) =>
     props.$curCategory === props.value ? "#000" : "var(--text-col)"};
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem 0.5rem 1rem;
   margin: 0 0.8rem;
   cursor: pointer;
   text-transform: uppercase;

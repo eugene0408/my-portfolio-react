@@ -6,7 +6,7 @@ export const SkillsContainer = styled(Container)`
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 `;
 

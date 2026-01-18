@@ -15,7 +15,8 @@ export const PageWrapper = styled.section`
 export const PageHeader = styled.h2`
   font-size: 36px;
   font-weight: 600;
-  margin-top: 4rem;
+  position: absolute;
+  top: 5%;
   color: var(--text-col);
   width: 100%;
   text-align: center;
@@ -62,9 +63,15 @@ export const Container = styled.div`
   position: relative;
 
   @media (min-width: 320px) and (max-width: 479px) {
-    max-width: 260px;
+    --sidebar-width: 55px;
+    --container-width: 280px;
+    max-width: var(--container-width);
     padding-inline: 0;
-    margin-inline: auto;
+    margin-left: calc(
+      var(--sidebar-width) +
+        (100vw - var(--sidebar-width) - var(--container-width)) / 2
+    );
+    margin-right: auto;
   }
 
   @media (min-width: 480px) {

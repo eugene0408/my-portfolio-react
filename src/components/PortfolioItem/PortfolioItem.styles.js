@@ -5,7 +5,7 @@ const flexCenter = `
     align-items: center;
     justify-content: center;
 `;
-
+// Whole card wrapper
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,9 +14,9 @@ export const Wrapper = styled.div`
   position: relative;
   height: 200px;
   width: 90%;
-  padding: 1em;
+  margin-top: 1.5em;
+  padding: 0.7em;
   color: var(--text-col);
-  margin-top: 2em;
   border-radius: 15px;
   background-color: var(--glassBg);
   border: 1px solid var(--glassBorder);
@@ -27,6 +27,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 1400px) {
     width: 100%;
+    padding: 0.9em;
   }
   @media (max-width: 1200px) {
     height: 180px;
@@ -40,7 +41,7 @@ export const Wrapper = styled.div`
     height: 400px;
   }
 `;
-
+// Wpapper to both screenshots & tags on some resolutions
 export const ScreensWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -65,6 +66,7 @@ export const ScreensWrapper = styled.div`
     align-items: center;
   }
 `;
+// fully covered by desctop image and relative for mobile position
 export const ScreensContainer = styled.div`
   position: relative;
   height: 100%;
@@ -235,7 +237,7 @@ export const LinksWrapper = styled.div`
     font-size: 12px;
   }
 `;
-
+// On hover arrows in buttons
 export const LinkArrowWrapper = styled.div`
   display: flex;
   justify-content: center;
