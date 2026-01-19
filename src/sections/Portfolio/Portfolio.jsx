@@ -142,30 +142,39 @@ export const Portfolio = forwardRef(
     };
 
     // Switch pages handler
-    const nextPage = () => {
-      switch (true) {
-        case curPortfolioPage < numberOfScreens:
-          setCurPortfolioPage(curPortfolioPage + 1);
-          break;
-        case curPortfolioPage === numberOfScreens && !isLastCategory: //switch to next category if scrolled to an end
-          switchToNextCategory();
-          break;
-        default:
-          scrollToNextSection("s-contacts"); // go to next section if scrolled to last item
-      }
-    };
+    const pagesHandler = (mouseWheel = true) => {
+      const nextPage = () => {
+        switch (true) {
+          case curPortfolioPage < numberOfScreens:
+            setCurPortfolioPage(curPortfolioPage + 1);
+            break;
+          case curPortfolioPage === numberOfScreens && !isLastCategory: //switch to next category if scrolled to an end
+            switchToNextCategory();
+            break;
+          default:
+            mouseWheel
+              ? scrollToNextSection("s-contacts") // go to next section if scrolled to last item
+              : setCurPortfolioPage(1);
+            setPortfolioCategory(categoriesList[0]);
+        }
+      };
+      const prevPage = () => {
+        switch (true) {
+          case curPortfolioPage > 1:
+            setCurPortfolioPage(curPortfolioPage - 1);
+            break;
+          case curPortfolioPage === 1 && !isFirstCategory: //switch to prewious category if scrolled to an end
+            switchToPrevCategory();
+            break;
+          default:
+            mouseWheel && scrollToNextSection("s-skills"); // go to prew section if scrolled to last item
+        }
+      };
 
-    const prevPage = () => {
-      switch (true) {
-        case curPortfolioPage > 1:
-          setCurPortfolioPage(curPortfolioPage - 1);
-          break;
-        case curPortfolioPage === 1 && !isFirstCategory: //switch to prewious category if scrolled to an end
-          switchToPrevCategory();
-          break;
-        default:
-          scrollToNextSection("s-skills"); // go to prew section if scrolled to last item
-      }
+      return {
+        next: nextPage,
+        prev: prevPage,
+      };
     };
 
     // Switch pages by mouse wheel
@@ -177,8 +186,10 @@ export const Portfolio = forwardRef(
 
       isScrollingRef.current = true;
 
-      if (isScrollingDown) nextPage();
-      if (isScrollingUp) prevPage();
+      const { next, prev } = pagesHandler();
+
+      if (isScrollingDown) next();
+      if (isScrollingUp) prev();
 
       setTimeout(() => {
         isScrollingRef.current = false;
@@ -192,20 +203,46 @@ export const Portfolio = forwardRef(
 
     const onTouchStartHandler = (e) => {
       setTouchEnd(null);
-      setTouchStart(e.targetTouches[0].clientY);
+      setTouchStart({
+        x: e.targetTouches[0].clientX,
+        y: e.targetTouches[0].clientY,
+      });
       setHovered(true); //stop page scroll
     };
 
-    const onTouchMoveHandler = (e) => setTouchEnd(e.targetTouches[0].clientY);
+    const onTouchMoveHandler = (e) =>
+      setTouchEnd({
+        x: e.targetTouches[0].clientX,
+        y: e.targetTouches[0].clientY,
+      });
 
     const onTouchEndHandler = () => {
       if (!touchStart || !touchEnd) return;
-      const distance = touchStart - touchEnd;
-      const isUpSwipe = distance > minSwipeDistance;
-      const isDownSwipe = distance < -minSwipeDistance;
+      const deltaX = touchStart.x - touchEnd.x;
+      const deltaY = touchStart.y - touchEnd.y;
 
-      if (isUpSwipe) nextPage();
-      if (isDownSwipe) prevPage();
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+
+      const { next, prev } = pagesHandler(false);
+
+      if (absX > absY && absX > minSwipeDistance) {
+        // horizontal swipe
+        if (deltaX > 0) {
+          next();
+        } else {
+          prev();
+        }
+      }
+
+      if (absY > absX && absY > minSwipeDistance) {
+        // vertical swipe
+        if (deltaY > 0) {
+          scrollToNextSection("s-contacts");
+        } else {
+          scrollToNextSection("s-skills");
+        }
+      }
     };
 
     return (
