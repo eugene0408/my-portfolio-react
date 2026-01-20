@@ -91,7 +91,9 @@ export const PortfolioItem = ({
   itemsPerScreen,
   curSection,
 }) => {
-  const isMediumScreen = useScreenSize() === "medium";
+  const mediumScreen = useScreenSize() === "medium";
+  const tabletScreen = useScreenSize() === "tablet";
+  const isMediumScreen = mediumScreen || tabletScreen;
   const isCurrentSection = curSection === "s-portfolio";
 
   const isActive = () =>
@@ -99,13 +101,13 @@ export const PortfolioItem = ({
     index >= (curPage - 1) * itemsPerScreen() &&
     index < curPage * itemsPerScreen();
 
-  console.log({
-    index: index,
-    perScreen: itemsPerScreen,
-    curPage: curPage,
-    curSection: isCurrentSection,
-    result: isActive(),
-  });
+  // console.log({
+  //   index: index,
+  //   perScreen: itemsPerScreen,
+  //   curPage: curPage,
+  //   curSection: isCurrentSection,
+  //   result: isActive(),
+  // });
 
   return (
     <AnimatePresence>
@@ -113,7 +115,6 @@ export const PortfolioItem = ({
         as={motion.div}
         variants={wrapperAnimation}
         initial="hidden"
-        // whileInView="visible"
         animate={isActive() ? "visible" : "hidden"}
         custom={index}
       >
@@ -121,7 +122,6 @@ export const PortfolioItem = ({
           <ScreensContainer
             as={motion.div}
             initial="hidden"
-            // whileInView="visible"
             animate={isActive() ? "visible" : "hidden"}
           >
             <DesctopScreen as={motion.div} variants={bigScreenAnimation}>
@@ -149,7 +149,6 @@ export const PortfolioItem = ({
             as={motion.h3}
             variants={titleAnimation}
             initial="hidden"
-            // whileInView="visible"
             animate={isActive() ? "visible" : "hidden"}
           >
             {title}
@@ -174,7 +173,6 @@ export const PortfolioItem = ({
             as={motion.p}
             variants={textAnimation}
             initial="hidden"
-            // whileInView="visible"
             animate={isActive() ? "visible" : "hidden"}
           >
             {descr}

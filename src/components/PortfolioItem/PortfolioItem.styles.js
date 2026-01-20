@@ -33,6 +33,9 @@ export const Wrapper = styled.div`
     height: 180px;
     padding: 0.5em;
   }
+  @media (max-width: 768px) {
+    height: 210px;
+  }
   @media (max-width: 576px) {
     flex-direction: column;
     height: 360px;
@@ -60,6 +63,7 @@ export const ScreensWrapper = styled.div`
   }
   @media (max-width: 768px) {
     justify-content: center;
+    width: 40%;
   }
   @media (max-width: 576px) {
     width: 100%;
@@ -75,7 +79,7 @@ export const ScreensContainer = styled.div`
     height: 140px;
   }
   @media (max-width: 768px) {
-    height: 100px;
+    height: 110px;
     margin-bottom: 1em;
   }
   @media (max-width: 576px) {
@@ -117,7 +121,7 @@ export const MobileScreen = styled.div`
     height: 100px;
   }
   @media (max-width: 768px) {
-    height: 80px;
+    height: 95px;
   }
   @media (max-width: 576px) {
     height: 140px;
@@ -132,7 +136,7 @@ export const DescrWrapper = styled.div`
   width: 70%;
   height: 100%;
   color: var(--text-col);
-  padding: 1em;
+  padding: 0 1em;
   z-index: 1;
   @media (max-width: 1400px) {
     width: 65%;
@@ -145,6 +149,9 @@ export const DescrWrapper = styled.div`
     align-items: flex-end;
     justify-content: center;
   }
+  @media (max-width: 768px) {
+    width: 55%;
+  }
   @media (max-width: 576px) {
     width: 90%;
   }
@@ -154,10 +161,13 @@ export const DescrWrapper = styled.div`
 `;
 
 export const Title = styled.h3`
+  display: flex;
   font-size: 24px;
   font-weight: 400;
   margin: 0;
+  padding-bottom: 0.1em;
   width: 100%;
+  line-height: 1.2;
   @media (max-width: 1200px) {
     font-size: 22px;
   }
@@ -203,7 +213,9 @@ export const Tags = styled.div`
 `;
 
 export const Description = styled.p`
+  display: flex;
   width: 100%;
+  flex-grow: 1;
   font-size: 16px;
   font-weight: 300;
   margin-top: 0.5em;
@@ -234,7 +246,6 @@ export const LinksWrapper = styled.div`
   }
   @media (max-width: 992px) {
     width: 100%;
-    font-size: 12px;
   }
 `;
 // On hover arrows in buttons
@@ -295,11 +306,5 @@ export const LinkItem = styled.a.attrs({
       width: var(--size);
     }
   }
-  @media (max-width: 992px) {
-    & svg {
-      --size: 14px;
-      height: var(--size);
-      width: var(--size);
-    }
   }
 `;
