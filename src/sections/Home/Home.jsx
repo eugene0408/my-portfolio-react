@@ -131,7 +131,7 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
 
             </AvatarBgWrapper>*/}
             <motion.img
-              src={"./images/homepage/main.png"}
+              src={"./images/homepage/main.webp"}
               alt="avatar"
               variants={imageAnimation}
               custom={1}

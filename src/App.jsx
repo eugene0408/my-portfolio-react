@@ -18,7 +18,7 @@ function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
-    defaultDark ? "dark" : "light"
+    defaultDark ? "dark" : "light",
   );
 
   const [currentSection, setCurrentSection] = useState("s-home");
@@ -71,9 +71,9 @@ function App() {
   };
 
   const imageUrls = [
-    "./images/homepage/morda.png",
-    "./images/homepage/sun.png",
-    "./images/homepage/moon.png",
+    "./images/homepage/main.webp",
+    "./images/homepage/sun.webp",
+    "./images/homepage/moon.webp",
   ];
 
   useEffect(() => {

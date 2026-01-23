@@ -34,7 +34,7 @@
     "category": "react",
     "desktop": "images/portfolio/redux-shop.webp",
     "mobile": "images/portfolio/redux-shop_m.webp",
-    "descr": "E-commerce store designed for portfolio purposes with category sorting, popular products, shopping cart and switch between light and dark themes.",
+    "descr": "E-commerce store featuring category-based sorting, popular products, a shopping cart, multilingual support with language switching, light and dark themes, and a custom user interface fully designed and crafted by me, with responsive layout and modern UX patterns.",
     "tags": [
       "react",
       "redux-toolkit",
@@ -50,7 +50,7 @@
     "category": "js",
     "desktop": "images/portfolio/honey-shop.webp",
     "mobile": "images/portfolio/honey-shop_m.webp",
-    "descr": "Small e-commerce web application with smooth animations. It demonstrates essential features commonly found in online stores. ",
+    "descr": "Small e-commerce web application with smooth animations, demonstrating essential features commonly found in online stores, enhanced by an original visual design fully created and implemented by me, featuring a fully responsive layout across devices.",
     "tags": ["html", "sass", "js", "jQuery"],
     "website": "https://eugene0408.github.io/honey-shop/",
     "repo": "https://github.com/eugene0408/honey-shop"
@@ -60,7 +60,7 @@
     "category": "js",
     "desktop": "images/portfolio/compremont.webp",
     "mobile": "images/portfolio/compremont_m.webp",
-    "descr": "Computer and smartphone repair workshop website with carousel slider that showcases key offerings, and subtle element animations.",
+    "descr": "Computer and smartphone repair workshop website with a carousel slider showcasing key services, subtle interface animations, a fully responsive design across devices, and an integrated contact form for customer inquiries and feedback.",
     "tags": ["html", "sass", "js", "jQuery"],
     "website": "https://compremont.netlify.app/",
     "repo": "https://github.com/eugene0408/Compremont"
@@ -70,7 +70,7 @@
     "category": "js",
     "desktop": "images/portfolio/food-spin.webp",
     "mobile": "images/portfolio/food-spin_m.webp",
-    "descr": "Website layout design based on a free template. Spinner carousel, dynamic animations, responsive design",
+    "descr": "Website layout design based on a free template, featuring a spinner carousel used as an interactive menu for dish selection, complemented by dynamic interface animations and a fully responsive layout across different screen sizes.",
     "tags": ["html", "sass", "js"],
     "website": "https://eugene0408.github.io/food-spin/",
     "repo": "https://github.com/eugene0408/food-spin"

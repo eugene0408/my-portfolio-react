@@ -61,7 +61,7 @@ export const ScreensWrapper = styled.div`
     align-items: flex-start;
     width: 35%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     justify-content: center;
     width: 40%;
   }
@@ -78,7 +78,7 @@ export const ScreensContainer = styled.div`
   @media (max-width: 992px) {
     height: 140px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 110px;
     margin-bottom: 1em;
   }
@@ -120,7 +120,7 @@ export const MobileScreen = styled.div`
   @media (max-width: 992px) {
     height: 100px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 95px;
   }
   @media (max-width: 576px) {
@@ -149,7 +149,7 @@ export const DescrWrapper = styled.div`
     align-items: flex-end;
     justify-content: center;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 55%;
   }
   @media (max-width: 576px) {
@@ -193,7 +193,9 @@ export const Tags = styled.div`
     position: relative;
     background: var(--glassBg);
     transition: color 0.3s ease;
-    &:hover {
+  }
+  @media (hover: hover) {
+    & div:hover {
       color: var(--theme-accent);
     }
   }
