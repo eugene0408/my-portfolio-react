@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 576px) {
     flex-direction: column;
-    height: 360px;
+    height: 380px;
   }
   @media (max-width: 480px) {
     height: 400px;
@@ -232,6 +232,10 @@ export const Description = styled.p`
     font-size: 12px;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+  }
+  @media (max-width: 992px) and (min-width: 576px) {
+    height: fit-content;
+    flex-grow: 0;
   }
 `;
 
