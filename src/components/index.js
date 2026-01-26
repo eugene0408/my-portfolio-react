@@ -5,6 +5,7 @@ import { PortfolioCategorySelect } from "./PortfolioCategorySelect/PortfolioCate
 import { PortfolioItem } from "./PortfolioItem/PortfolioItem";
 import { PortfolioPagination } from "./PortfolioPagination/PortfolioPagination";
 import { Loading } from "./Loading/Loading";
+import { RotateOverlay } from "./RotateOverlay/RotateOverlay";
 
 import { AccentButton, CVButton, CVIcon } from "./Buttons/Buttons.styles";
 
@@ -16,6 +17,7 @@ export {
   PortfolioItem,
   PortfolioPagination,
   Loading,
+  RotateOverlay,
   AccentButton,
   CVButton,
   CVIcon,

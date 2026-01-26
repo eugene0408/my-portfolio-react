@@ -3,7 +3,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 
 // Components
 import { Home, Skills, Portfolio, Contacts } from "./sections";
-import { SideMenu, Topline } from "./components";
+import { SideMenu, Topline, RotateOverlay } from "./components";
 import { SnapScrollContainer } from "./sections/Pages.styles";
 import { Loading } from "./components";
 
@@ -142,6 +142,7 @@ function App() {
               scrollToSection={scrollToSection}
               setPortfolioHovered={setPortfolioHovered}
             />
+            <RotateOverlay />
 
             <SnapScrollContainer
               ref={scrollContainerRef}

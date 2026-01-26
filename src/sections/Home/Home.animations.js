@@ -10,7 +10,7 @@ export const sunMoonAnimation = {
     opacity: 1,
     transition: {
       delay: 0.2,
-      duaration: 0.5,
+      duration: 0.5,
       type: "tween",
       ease: "easeInOut",
     },
