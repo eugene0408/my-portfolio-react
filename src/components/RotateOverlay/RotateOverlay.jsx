@@ -19,7 +19,7 @@ const phoneRotateAnimation = {
 
 export const RotateOverlay = () => {
   const isLandscape = useMediaQuery(
-    "(orientation: landscape) and (max-width: 998px)",
+    "(orientation: landscape) and (max-width: 768px)",
   );
 
   return (

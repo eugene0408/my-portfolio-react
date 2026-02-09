@@ -1,37 +1,89 @@
 import styled from "styled-components";
-import { Container } from "../Pages.styles";
+import { Container, PageHeader } from "../Pages.styles";
 
 export const SkillsContainer = styled(Container)`
   width: 100%;
   display: flex;
   flex-grow: 1;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 `;
 
-export const CardsGrid = styled.div`
-  position: relative;
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
   width: 100%;
-  display: grid;
-  gap: 10px 0;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 3em;
-  @media (min-width: 576px) {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px 0;
-    margin-top: 1em;
+  height: max-content;
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: flex-start;
   }
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(7, 1fr);
-    margin-top: 1.5em;
+`;
+
+export const CardsContainer = styled.div`
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  @media (max-width: 992px) {
+    widht: 40%;
   }
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(8, 1fr);
+  @media (max-width: 480px) {
+    width: 100%;
+    gap: 0 10px;
+    & .cards-header {
+      margin-top: 0.3em;
+    }
   }
-  @media (min-width: 1400px) {
-    grid-template-columns: repeat(12, 1fr);
+`;
+
+export const CardsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 0 1em;
+  border-radius: 10px;
+  background-color: var(--glassBg);
+  border: 1px solid var(--glassBorder);
+  backdrop-filter: blur(4px);
+  @media (max-width: 1600px) {
+    gap: 14px;
   }
+  @media (max-width: 480px) {
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 0 0.3em;
+  }
+`;
+
+export const TextWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  padding: 0 4em 1em 1em;
+  color: var(--text-col);
+  font-size: 18px;
+  @media (max-width: 992px) {
+    font-size: 16px;
+    width: 60%;
+    padding: 0 2em 1em 1em;
+  }
+  @media (max-width: 480px) {
+    padding: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+`;
+export const Header = styled(PageHeader)`
+  position: relative;
+`;
+
+export const H = styled.span`
+  color: var(--theme-accent);
 `;
 
 export const RowHeader = styled.h4`
@@ -49,7 +101,7 @@ export const RowHeader = styled.h4`
   cursor: default;
   transition: 0.4s ease;
   @media (hover: hover) {
-    ${CardsGrid}:hover & {
+    ${CardsContainer}:hover & {
       opacity: 0.1;
     }
   }

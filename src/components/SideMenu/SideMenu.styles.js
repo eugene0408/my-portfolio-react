@@ -92,6 +92,9 @@ const arrowLinkStyles = `
     & svg path {
         fill: var(--text-col);
     }
+    @media (max-height: 768px) {
+      --wrapper-offset: 2em;
+    }
 `;
 
 export const ArrowLinkPrev = styled.div`

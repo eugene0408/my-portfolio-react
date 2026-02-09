@@ -1,5 +1,6 @@
 {
-  "development": ["html", "css", "scss", "js", "react", "redux", "responsive"],
+  "development": ["js", "react", "redux"],
+  "layout": ["html", "css", "scss", "responsive"],
   "tools": ["git", "github", "docker", "hosting"],
-  "graphic": ["figma", "photoshop", "inkscape"]
+  "graphic": ["figma", "photoshop"]
 }

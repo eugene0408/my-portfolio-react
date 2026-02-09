@@ -5,12 +5,12 @@ export const sunMoonAnimation = {
     opacity: 0,
   },
   visible: {
-    x: [-250, -220, -200, -150, -100, 0],
-    y: [100, 80, 50, 20, 0],
+    x: [-250, -225, -200, -175, -150, -125, -100, 0],
+    y: [100, 75, 50, 25, 0],
     opacity: 1,
     transition: {
       delay: 0.2,
-      duration: 0.5,
+      duration: 0.3,
       type: "tween",
       ease: "easeInOut",
     },

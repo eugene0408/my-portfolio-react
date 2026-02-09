@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   align-items: center;
   flex-direction: column;
   & svg {
-    heigth: 50px;
+    height: 50px;
     width: 50px;
   }
   & svg path {

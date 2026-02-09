@@ -312,5 +312,4 @@ export const LinkItem = styled.a.attrs({
       width: var(--size);
     }
   }
-  }
 `;
