@@ -31,6 +31,7 @@ export const PageHeader = styled.h2`
     margin-top: 4rem;
   }
   @media (max-width: 480px) {
+    margin-top: 2rem;
     margin-bottom: 0.3em;
   }
 `;

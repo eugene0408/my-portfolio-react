@@ -17,6 +17,7 @@ import {
 import {
   skillCardsAnimation,
   cardsWrapperAnimation,
+  textAnimation,
 } from "./Skills.animations";
 
 export const Skills = forwardRef(({ skillsData }, ref) => {
@@ -25,20 +26,32 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
       <SkillsContainer>
         <ContentWrapper>
           <TextWrapper>
-            <Header> About me </Header>
-            <p>
+            <Header> About Me </Header>
+            <motion.p
+              variants={textAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 1 }}
+              custom={1}
+            >
               Frontend developer specializing in <H>React</H> and modern{" "}
               <H>JavaScript</H>. I build <H>responsive web applications</H>{" "}
               using Redux Toolkit, REST APIs, and modular component
               architectures.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={textAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 1 }}
+              custom={3}
+            >
               Through personal projects, I implement features commonly used in
               real-world products, such as product catalogs, search and
               filtering, state management, theming, and responsive layouts. I
               enjoy solving <H>practical problems</H> and continuously improving
               my skills by building and refining complete applications.
-            </p>
+            </motion.p>
           </TextWrapper>
           <CardsContainer>
             <Header className="cards-header">My Skills</Header>

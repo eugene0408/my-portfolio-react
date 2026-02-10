@@ -23,8 +23,25 @@ export const cardsWrapperAnimation = {
     scale: 1,
     transition: {
       delay: custom * 0.1,
-      type: "easeInOut",
+      type: "tween",
+      ease: "easeInOut",
       duration: 0.4,
+    },
+  }),
+};
+
+export const textAnimation = {
+  hidden: {
+    opacity: 0,
+    x: 50,
+  },
+  visible: (custom) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: custom * 0.1,
+      duration: 0.3,
+      type: "spring",
     },
   }),
 };

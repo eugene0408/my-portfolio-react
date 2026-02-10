@@ -32,7 +32,7 @@ export const CardsContainer = styled.div`
   }
   @media (max-width: 480px) {
     width: 100%;
-    gap: 0 10px;
+    gap: 0 8px;
     & .cards-header {
       margin-top: 0.3em;
     }
@@ -55,8 +55,8 @@ export const CardsWrapper = styled.div`
     gap: 14px;
   }
   @media (max-width: 480px) {
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    margin-bottom: 8px;
     padding: 0 0.3em;
   }
 `;
@@ -76,10 +76,16 @@ export const TextWrapper = styled.div`
     padding: 0;
     width: 100%;
     font-size: 14px;
+    & p {
+      margin: 0.5em 0;
+    }
   }
 `;
 export const Header = styled(PageHeader)`
   position: relative;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 
 export const H = styled.span`
