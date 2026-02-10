@@ -77,7 +77,8 @@ export const TextWrapper = styled.div`
     width: 100%;
     font-size: 14px;
     & p {
-      margin: 0.5em 0;
+      margin-top: 0;
+      margin-bottom: 0.5em;
     }
   }
 `;
@@ -85,6 +86,7 @@ export const Header = styled(PageHeader)`
   position: relative;
   @media (max-width: 480px) {
     font-size: 28px;
+    margin-top: 0.3em;
   }
 `;
 

@@ -31,8 +31,8 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
               variants={textAnimation}
               initial="hidden"
               whileInView="visible"
-              viewport={{ amount: 1 }}
-              custom={1}
+              viewport={{ amount: 0.5 }}
+              custom={2}
             >
               Frontend developer specializing in <H>React</H> and modern{" "}
               <H>JavaScript</H>. I build <H>responsive web applications</H>{" "}
@@ -43,8 +43,8 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
               variants={textAnimation}
               initial="hidden"
               whileInView="visible"
-              viewport={{ amount: 1 }}
-              custom={3}
+              viewport={{ amount: 0.5 }}
+              custom={4}
             >
               Through personal projects, I implement features commonly used in
               real-world products, such as product catalogs, search and

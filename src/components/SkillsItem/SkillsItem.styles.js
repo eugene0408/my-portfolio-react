@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   position: relative;
   cursor: default;
   @media (max-width: 480px) {
-    margin-top: 1rem;
+    margin-top: 0.4rem;
   }
 `;
 
