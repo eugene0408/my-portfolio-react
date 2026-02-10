@@ -250,7 +250,7 @@ export const Portfolio = forwardRef(
         {/* <ImagePreloader imageUrls={imageUrls()}/> */}
 
         <PortfolioContainer>
-          <PageHeader> My rojects </PageHeader>
+          <PageHeader> My Projects </PageHeader>
           <PortfolioCategorySelect
             curCategory={portfolioCategory}
             setCategory={setPortfolioCategory}
