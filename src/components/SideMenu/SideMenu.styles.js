@@ -93,7 +93,7 @@ const arrowLinkStyles = `
         fill: var(--text-col);
     }
     @media (max-height: 768px) {
-      --wrapper-offset: 2em;
+      --wrapper-offset: 2.5em;
     }
 `;
 

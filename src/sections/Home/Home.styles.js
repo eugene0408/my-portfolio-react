@@ -9,7 +9,7 @@ export const HomeGrid = styled.div`
     grid-template-columns: 2fr 1fr;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -48,12 +48,12 @@ export const HeaderTitle = styled.div`
       font-size: 36px;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     & h2 {
       font-size: 28px;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     margin-top: 15rem;
     & h2::before {
       content: "";
@@ -90,7 +90,7 @@ export const AvatarWrapper = styled.div`
       height: 340px;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     position: absolute;
     top: 0;
     left: 25%;
@@ -119,7 +119,7 @@ export const AvatarBgWrapper = styled.div`
       height: 320px;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     & svg {
       height: 235px;
     }

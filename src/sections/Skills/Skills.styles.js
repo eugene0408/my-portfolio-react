@@ -7,6 +7,9 @@ export const SkillsContainer = styled(Container)`
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  @media (max-width: 480px) {
+    align-items: flex-start;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -18,6 +21,8 @@ export const ContentWrapper = styled.div`
   @media (max-width: 480px) {
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 5rem;
   }
 `;
 
@@ -79,6 +84,7 @@ export const TextWrapper = styled.div`
     & p {
       margin-top: 0;
       margin-bottom: 0.5em;
+      line-height: 1.3;
     }
   }
 `;
