@@ -26,7 +26,6 @@ import {
 import {
   sunMoonAnimation,
   imageAnimation,
-  // imageBgAnimation,
   textAnimation,
 } from "./Home.animations";
 
@@ -37,7 +36,12 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
     <PageWrapper id="s-home" ref={ref}>
       <Container>
         <HomeGrid>
-          <HeaderWrapper as={motion.div} initial="hidden" whileInView="visible">
+          <HeaderWrapper
+            as={motion.div}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.5 }}
+          >
             <HeaderTitle>
               <motion.h2 variants={textAnimation} custom={1}>
                 Hi,
@@ -122,14 +126,6 @@ export const Home = forwardRef(({ scrollToSection }, ref) => {
             whileInView="visible"
             whileHover="hover"
           >
-            {/* <AvatarBgWrapper
-              as={motion.div}
-              variants={imageBgAnimation}
-              initial="hidden"
-              whileInView="visible"
-            >
-
-            </AvatarBgWrapper>*/}
             <motion.img
               src={"./images/homepage/main.webp"}
               alt="avatar"

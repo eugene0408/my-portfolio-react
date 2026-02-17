@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef, useRef } from "react";
+import { motion } from "framer-motion";
 import { useScreenSize } from "../../hooks/useScreenSize";
 
 import {
@@ -8,8 +9,11 @@ import {
 } from "../../components";
 
 import { PageWrapper, PageHeader } from "../Pages.styles";
+import { headerAnimation } from "../Pages.animations";
 
 import { PortfolioContainer, PortfolioWrapper } from "./Portfolio.styles";
+
+import { bounceIn } from "../../animations";
 
 export const Portfolio = forwardRef(
   ({ setHovered, scrollToSection, currentSection, portfolioData }, ref) => {
@@ -250,7 +254,16 @@ export const Portfolio = forwardRef(
         {/* <ImagePreloader imageUrls={imageUrls()}/> */}
 
         <PortfolioContainer>
-          <PageHeader> My Projects </PageHeader>
+          <PageHeader
+            as={motion.h2}
+            variants={bounceIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.9 }}
+          >
+            {" "}
+            My Projects{" "}
+          </PageHeader>
           <PortfolioCategorySelect
             curCategory={portfolioCategory}
             setCategory={setPortfolioCategory}

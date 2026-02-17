@@ -14,6 +14,8 @@ import {
   Header,
   H,
 } from "./Skills.styles";
+
+import { bounceIn } from "../../animations";
 import {
   skillCardsAnimation,
   cardsWrapperAnimation,
@@ -26,12 +28,22 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
       <SkillsContainer>
         <ContentWrapper>
           <TextWrapper>
-            <Header> About Me </Header>
+            <Header
+              as={motion.h2}
+              variants={bounceIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.9 }}
+              custom={{ delayIndex: 1 }}
+            >
+              {" "}
+              About Me{" "}
+            </Header>
             <motion.p
               variants={textAnimation}
               initial="hidden"
               whileInView="visible"
-              viewport={{ amount: 0.5 }}
+              viewport={{ amount: 0.9 }}
               custom={2}
             >
               Frontend developer specializing in <H>React</H> and modern{" "}
@@ -54,7 +66,17 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
             </motion.p>
           </TextWrapper>
           <CardsContainer>
-            <Header className="cards-header">My Skills</Header>
+            <Header
+              className="cards-header"
+              as={motion.h2}
+              variants={bounceIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.5 }}
+              custom={{ delayIndex: 2 }}
+            >
+              My Skills
+            </Header>
             {Object.entries(skillsData).map(
               ([category, items], categoryIndex) => (
                 <CardsWrapper
@@ -63,7 +85,7 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
                   variants={cardsWrapperAnimation}
                   initial="hidden"
                   whileInView="visible"
-                  custom={categoryIndex}
+                  custom={categoryIndex + 1}
                 >
                   {items.map((item, index) => (
                     <MSkillsItem
@@ -73,7 +95,7 @@ export const Skills = forwardRef(({ skillsData }, ref) => {
                       initial="hidden"
                       whileInView="visible"
                       whileHover="hover"
-                      custom={index * categoryIndex}
+                      custom={index + 1 + categoryIndex}
                     />
                   ))}
                 </CardsWrapper>

@@ -28,7 +28,6 @@ export const HeaderTitle = styled.div`
     position: relative;
     width: fit-content;
     font-family: var(--main-font);
-    /* background: var(--glassBg); */
     font-weight: 700;
     font-size: 64px;
     color: var(--text-col);
@@ -82,7 +81,7 @@ export const AvatarWrapper = styled.div`
   align-items: center;
   height: 100%;
   & img {
-    height: 500px;
+    height: 450px;
     z-index: 2;
   }
   @media (max-width: 1200px) {
@@ -97,31 +96,6 @@ export const AvatarWrapper = styled.div`
     height: 92vh;
     & img {
       height: 250px;
-    }
-  }
-`;
-
-export const AvatarBgWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & svg {
-    height: 0;
-  }
-  & svg path {
-    fill: var(--ava-bg);
-  }
-  @media (max-width: 1200px) {
-    & svg {
-      height: 320px;
-    }
-  }
-  @media (max-width: 767px) {
-    & svg {
-      height: 235px;
     }
   }
 `;
@@ -141,9 +115,6 @@ export const ThemeImageWrapper = styled.div`
   & img {
     height: 100%;
     width: 100%;
-  }
-  @media (max-width: 1200px) {
-    --size: 120px;
   }
   @media (max-width: 768px) {
     --size: 70px;

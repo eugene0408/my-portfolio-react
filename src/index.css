@@ -83,18 +83,6 @@
   font-display: swap;
 }
 
-/* --main-bg:#15141B; */
-/*linear-gradient(109deg, rgba(34,36,48,1) 40%, rgba(21,20,27,0.8) 60%, rgba(21,20,27,1) 98%);
-linear-gradient(315deg, #2b4162 0%, #12100e 74%);   
-
-background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
-
-background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
-
-
-
- */
-
 :root {
   --accent: #ffc831;
   --main-bg: linear-gradient(147deg, #4d4855 0%, #000000 74%);
@@ -117,20 +105,9 @@ background-image: linear-gradient(147deg, #4d4855 0%, #000000 74%);
   --glassBg: rgba(255, 255, 255, 0.07);
   --glassBorder: rgba(255, 255, 255, 0.02);
 
-  --skillLevelBg: #ffffff12;
-
   --portfolio-shadow: 0 5px 10px 10px rgba(255, 255, 255, 0.02);
 
   --main-font: "PoppinsWeb", "Poppins", sans-serif;
-  --bg-font: "CascadiaCoveWeb", "CascadiaCove", sans-serif;
-
-  --skill-animate-x: 150;
-}
-
-@media (max-width: 576px) {
-  body {
-    --skill-animate-x: 50;
-  }
 }
 
 [data-theme="light"] {

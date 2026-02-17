@@ -10,9 +10,9 @@ export const sunMoonAnimation = {
     opacity: 1,
     transition: {
       delay: 0.2,
-      duration: 0.3,
       type: "tween",
       ease: "easeInOut",
+      duration: 0.3,
     },
   },
   exit: {
@@ -20,9 +20,9 @@ export const sunMoonAnimation = {
     y: [0, 25, 50, 75, 100],
     opacity: 0,
     transition: {
-      duration: 0.2,
       type: "tween",
       ease: "easeIn",
+      duration: 0.2,
     },
   },
 };
@@ -37,7 +37,8 @@ export const imageAnimation = {
     opacity: 1,
     transition: {
       delay: custom * 0.2,
-      duration: 0.3,
+      type: "spring",
+      bounce: 0.4,
     },
   }),
 };
@@ -63,8 +64,8 @@ export const textAnimation = {
     opacity: 1,
     transition: {
       delay: custom * 0.1,
-      duration: 0.3,
       type: "spring",
+      bounce: 0.4,
     },
   }),
 };

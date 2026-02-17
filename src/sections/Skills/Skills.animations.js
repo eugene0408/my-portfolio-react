@@ -1,3 +1,18 @@
+export const cardsWrapperAnimation = {
+  hidden: {
+    scale: 0.95,
+  },
+  visible: (custom) => ({
+    scale: 1,
+    transition: {
+      delay: custom * 0.1,
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.6,
+    },
+  }),
+};
+
 export const skillCardsAnimation = {
   hidden: {
     opacity: 0,
@@ -7,25 +22,10 @@ export const skillCardsAnimation = {
     opacity: 1,
     scale: 1,
     transition: {
-      when: "beforeChildren",
-      duration: 0.7,
       delay: custom * 0.1,
       type: "spring",
-    },
-  }),
-};
-
-export const cardsWrapperAnimation = {
-  hidden: {
-    scale: 0.95,
-  },
-  visible: (custom) => ({
-    scale: 1,
-    transition: {
-      delay: custom * 0.1,
-      type: "tween",
-      ease: "easeInOut",
-      duration: 0.4,
+      bounce: 0.4,
+      duration: 0.3,
     },
   }),
 };
@@ -39,9 +39,9 @@ export const textAnimation = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: custom * 0.1,
-      duration: 0.3,
+      delay: custom * 0.2,
       type: "spring",
+      bounce: 0.4,
     },
   }),
 };
